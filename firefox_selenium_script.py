@@ -21,23 +21,28 @@ def init_driver():
     return driver
 
 def lookup(driver):
+
     # loads page
     for sites in websites:
         time.sleep(3)
         driver.get(sites)
-    # try:
-    #     # waits for query box element to be located
-    #     box = driver.wait.until(EC.presence_of_element_located(
-    #         (By.NAME, "q")))
-    #     # waits for the search button to be click-able
-    #     button = driver.wait.until(EC.element_to_be_clickable(
-    #         (By.NAME, "btnK")))
-    #     # places query into the search box
-    #     box.send_keys(query)
-    #     # clicks the button
-    #     button.click()
-    # except TimeoutException:
-    #     print("Box or Button not found in google.com")
+
+        timeout = 20
+        try:
+            WebDriverWait(driver, timeout)
+            driver.implicitly_wait(10)
+            # get text within div class
+            element = driver.find_element_by_class_name('LJV2HGB-d-Ab')
+
+            print(element.get_attribute('innerHTML'))
+
+        except TimeoutException:
+            print("Error")
+            driver.quit()
+
+
+
+
 
 if __name__ == "__main__":
     # init driver
