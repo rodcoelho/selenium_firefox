@@ -10,7 +10,7 @@ tar -xvzf geckodriver-v0.18.0-linux64.tar.gz
 
 chmod +x geckodriver
 
-chmod 777 geckodriver
+chmod 755 geckodriver
 
 #export PATH=$PATH:/usr/bin/env/geckodriver
-mv geckodriver /usr/local/bin
+sudo mv geckodriver /usr/local/bin
