@@ -27,7 +27,7 @@ dates = [
 payload = {}
 
 def init_driver():
-    driver = webdriver.Firefox()
+    driver = webdriver.Firefox(capabilities={"marionette":True})
     driver.wait = WebDriverWait(driver, 5)
     return driver
 
