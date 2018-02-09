@@ -14,3 +14,7 @@ chmod 755 geckodriver
 
 #export PATH=$PATH:/usr/bin/env/geckodriver
 sudo mv geckodriver /usr/local/bin
+
+apt-cache policy firefox
+
+sudo apt install firefox=45.0.2+build1-0ubuntu1
