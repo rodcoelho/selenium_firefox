@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+mkdir logs
+
 sudo apt-get install python-pip
 
 sudo pip install selenium
@@ -15,7 +17,7 @@ chmod 755 geckodriver
 #export PATH=$PATH:/usr/bin/env/geckodriver
 sudo mv geckodriver /usr/local/bin
 
-apt-get install dbus-x11
+sudo apt-get install dbus-x11
 
 sudo apt-add-repository ppa:mozillateam/firefox-next
 
