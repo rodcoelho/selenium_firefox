@@ -1,22 +1,17 @@
 #!/usr/bin/env python3
 from pyvirtualdisplay import Display
 import time, requests, random
-from selenium.webdriver import Firefox
+from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 from writeout import write_out_to_log
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.firefox.options import Options
-from selenium.webdriver.support import expected_conditions as expected
-from selenium.webdriver.support.wait import WebDriverWait
-
-
 
 url_ip_location = 'http://ipinfo.io/json'
 r = requests.get(url_ip_location).json()
 r = r['city']
+
 display = Display(visible=0, size=(1920, 1080)).start()
 
 website = 'https://www.google.com/flights/#search;f=JFK,EWR,LGA;t=LHR;'
@@ -32,9 +27,10 @@ dates = [
          ]
 payload = {}
 
+
 def init_driver():
-    driver = Firefox(executable_path='geckodriver', firefox_options=options)
-    driver.wait = WebDriverWait(driver, 10)
+    driver = webdriver.Firefox(capabilities={"marionette": True})
+    driver.wait = WebDriverWait(driver, 5)
     return driver
 
 def lookup(driver):
@@ -58,8 +54,6 @@ def lookup(driver):
             driver.quit()
 
 if __name__ == "__main__":
-    options = Options()
-    options.add_argument('-headless')
     # init driver
     driver = init_driver()
     # tell driver to look up query on google
