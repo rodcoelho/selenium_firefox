@@ -15,6 +15,7 @@ chmod +x geckodriver
 chmod 755 geckodriver
 
 #export PATH=$PATH:/usr/bin/env/geckodriver
+#sudo mv geckodriver /usr/bin/
 sudo mv geckodriver /usr/local/bin
 
 sudo apt-get install dbus-x11
