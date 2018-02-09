@@ -25,7 +25,7 @@ dates = [
 payload = {}
 
 def init_driver():
-    driver = webdriver.Firefox(executable_path='/usr/bin/env/geckodriver')
+    driver = webdriver.Firefox(executable_path='/usr/local/bin')
     driver.wait = WebDriverWait(driver, 5)
     return driver
 
