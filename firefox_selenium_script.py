@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from pyvirtualdisplay import Display
 import time, requests, random
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -10,6 +11,7 @@ from writeout import write_out_to_log
 url_ip_location = 'http://ipinfo.io/json'
 r = requests.get(url_ip_location).json()
 r = r['city']
+display = Display(visible=0, size=(1920, 1080)).start()
 
 website = 'https://www.google.com/flights/#search;f=JFK,EWR,LGA;t=LHR;'
 dates = [
