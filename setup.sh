@@ -6,6 +6,8 @@ sudo apt-get install python-pip
 
 sudo pip install selenium
 
+sudo pip install pyvirtualdisplay
+
 wget https://github.com/mozilla/geckodriver/releases/download/v0.18.0/geckodriver-v0.18.0-linux64.tar.gz
 
 tar -xvzf geckodriver-v0.18.0-linux64.tar.gz
