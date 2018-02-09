@@ -15,12 +15,12 @@ chmod 755 geckodriver
 #export PATH=$PATH:/usr/bin/env/geckodriver
 sudo mv geckodriver /usr/local/bin
 
+apt-get install dbus-x11
+
 sudo apt-add-repository ppa:mozillateam/firefox-next
 
-sudo apt-get install firefox xvfb
+sudo -y apt-get install firefox xvfb
 
 Xvfb :10 -ac &
 
 export DISPLAY=:10
-
-firefox
