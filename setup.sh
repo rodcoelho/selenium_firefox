@@ -15,6 +15,12 @@ chmod 755 geckodriver
 #export PATH=$PATH:/usr/bin/env/geckodriver
 sudo mv geckodriver /usr/local/bin
 
-apt-cache policy firefox
+sudo apt-add-repository ppa:mozillateam/firefox-next
 
-sudo apt install firefox=45.0.2+build1-0ubuntu1
+sudo apt-get install firefox xvfb
+
+Xvfb :10 -ac &
+
+export DISPLAY=:10
+
+firefox
