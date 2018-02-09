@@ -7,12 +7,11 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 from writeout import write_out_to_log
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 url_ip_location = 'http://ipinfo.io/json'
 r = requests.get(url_ip_location).json()
 r = r['city']
-
-display = Display(visible=0, size=(1920, 1080)).start()
 
 website = 'https://www.google.com/flights/#search;f=JFK,EWR,LGA;t=LHR;'
 dates = [
@@ -27,17 +26,23 @@ dates = [
          ]
 payload = {}
 
+display = Display(visible=0, size=(1920, 1080)).start()
+firefox_capabilities = DesiredCapabilities.FIREFOX
+firefox_capabilities['marionette'] = True
+firefox_capabilities['binary'] = '/usr/bin/firefox'
+
 
 def init_driver():
-    driver = webdriver.Firefox(capabilities={"marionette": True})
+    driver = webdriver.Firefox(capabilities=firefox_capabilities)
     driver.wait = WebDriverWait(driver, 5)
     return driver
+
 
 def lookup(driver):
 
     # loads page
     for date in dates:
-        time.sleep(random.uniform(1,6))
+        time.sleep(random.uniform(1, 6))
         driver.get(website+date[0])
 
         timeout = 20

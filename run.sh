@@ -1,5 +1,3 @@
 #!/usr/bin/env bash
 
-#python3 firefox_selenium_script.py
-
-python3 test.py
+python3 firefox_selenium_script.py
