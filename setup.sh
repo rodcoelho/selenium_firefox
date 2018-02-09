@@ -19,7 +19,7 @@ apt-get install dbus-x11
 
 sudo apt-add-repository ppa:mozillateam/firefox-next
 
-sudo -y apt-get install firefox xvfb
+sudo apt-get install firefox xvfb
 
 Xvfb :10 -ac &
 
