@@ -26,6 +26,9 @@ sudo apt-add-repository ppa:mozillateam/firefox-next
 
 sudo apt-get install firefox xvfb
 
-Xvfb :10 -ac &
-
+if [[ ! -f /tmp/.X10-lock ]]; then
+    Xvfb :10 -ac
+else
+    echo "INFO: $(date) - X Server already running" 1>&2
+fi
 export DISPLAY=:10
